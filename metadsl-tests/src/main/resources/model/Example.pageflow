@@ -1,0 +1,79 @@
+package com.example.pageflow
+
+
+pageflow MainFlow {
+
+    actions
+      back      "Back"
+      previous  "< Previous"
+      next      "Next >"
+      forums    "Forums"
+      tutorial  "Tutorial"
+    end
+     
+    state DisclaimerView
+      forums     => ForumsView
+      tutorial   => TutorialView
+      next       => FirstView
+    end
+     
+    state FirstView
+      forums     => ForumsView
+      tutorial   => TutorialView
+      previous   => DisclaimerView
+      next       => SecondView
+    end
+     
+    state SecondView
+      forums     => ForumsView
+      tutorial   => TutorialView
+      previous   => FirstView
+      next       => ThirdView
+    end
+     
+    state ThirdView
+      forums     => ForumsView
+      tutorial   => TutorialView
+      previous   => SecondView
+    end
+     
+    state ForumsView
+      back      => BACK
+    end
+    
+    state TutorialView
+      back      => BACK
+    end
+}
+
+pageflow One {
+    actions
+      back1      "Back"
+      previous1  "< Previous"
+      next1      "Next >"
+    end
+
+    state FirstView1
+      next1       => SecondView1
+    end
+
+    state SecondView1
+      previous1   => FirstView1
+    end
+}
+
+pageflow Two {
+    actions
+      back2      "Back"
+      previous2  "< Previous"
+      next2      "Next >"
+    end
+
+    state MainView2
+      next2       => AnotherView2
+    end
+
+    state AnotherView2
+      previous2   => MainView2
+    end
+}
