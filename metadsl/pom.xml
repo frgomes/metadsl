@@ -15,11 +15,16 @@
     <name>${project.artifactId}</name>
     <description>MetaDSL :: aggregator project</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    
     <modules>
 		<module>../maven-metadsl-plugin</module>
 		<module>../metadsl-plugin</module>
-		<!-- module>../metadsl-jpa-plugin</module -->  <!-- TO BE DONE -->
 		<module>../metadsl-equity-plugin</module>
+		<module>../metadsl-pageflow-plugin</module>
 		<module>../metadsl-tests</module>
     </modules>
 
