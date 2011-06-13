@@ -17,7 +17,7 @@ import scala.reflect.BeanProperty
 
 // THIS CLASS IS LEFT HERE FOR FUTURE PURPOSES
 
-private abstract class MainSupport(val name: String, val args: Array[String]) { //TODO: implements Runnable
+private abstract class MainSupport(val pluginPrefix: String, val args: Array[String]) { //TODO: implements Runnable
 
     // protected val logger : Logger = LoggerFactory.getLogger(classOf[MainSupport])
 
@@ -29,9 +29,8 @@ private abstract class MainSupport(val name: String, val args: Array[String]) { 
 
     // TODO: ideally, these constants should be shared with Java
     protected val DEFAULT_MODEL_DIR  = "src/main/resources/model/"
-    protected val DEFAULT_OUTPUT_DIR = "target/generated/pageflow-maven-plugin/"
 
-    protected val progName  = name
+    protected val pluginName:String  = "metadsl-" + pluginPrefix + "-plugin";
 
     // cmd line options
     protected var verbose	   : Boolean = false
@@ -56,7 +55,7 @@ private abstract class MainSupport(val name: String, val args: Array[String]) { 
 		//        		new LongOpt("verbose",  LongOpt.NO_ARGUMENT, null, 'v'),
 		//        		new LongOpt("help",     LongOpt.NO_ARGUMENT, null, 'h') )
 
-        val g : Getopt = new Getopt(progName, args, "b:m:o:vh", null /*longopts*/)
+        val g : Getopt = new Getopt(pluginName, args, "b:m:o:vh", null /*longopts*/)
         g.setOpterr(true)
 
         var c : Int = g.getopt
@@ -66,10 +65,10 @@ private abstract class MainSupport(val name: String, val args: Array[String]) { 
         		case 'm' => modelDirectory  = g.getOptarg
         		case 'o' => outputDirectory = g.getOptarg
 			    case 'v' => verbose = true
-			    case 'h' => usage(progName)
+			    case 'h' => usage(pluginName)
 			    			return 0
 			    case _   => println("The option '" + c + "' is not valid")
-			    			usage(progName)
+			    			usage(pluginName)
 			    			return 1
         	}
         	c = g.getopt
@@ -87,7 +86,7 @@ private abstract class MainSupport(val name: String, val args: Array[String]) { 
     	modeldir  = new File(basedir, modelDirectory)
         if (verbose) println("modeldir=%s".format(modeldir.getAbsolutePath))
 
-        if (outputDirectory==null) outputDirectory = DEFAULT_OUTPUT_DIR
+        if (outputDirectory==null) outputDirectory = "./target/generated-sources/" + pluginPrefix + "/";
     	outputdir = new File(basedir, outputDirectory)
         if (verbose) println("outputdir=%s".format(outputdir.getAbsolutePath))
 

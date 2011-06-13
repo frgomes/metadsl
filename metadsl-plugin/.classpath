@@ -4,7 +4,7 @@
   <classpathentry kind="src" path="src/main/resources" including="**/.*" excluding="**/*.scala|**/*.java"/>
   <classpathentry kind="src" path="src/test/resources" including="**/.*" excluding="**/*.scala|**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="var" path="M2_REPO/classworlds/classworlds/1.1/classworlds-1.1.jar" sourcepath="M2_REPO/classworlds/classworlds/1.1/classworlds-1.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/classworlds/classworlds/1.1/classworlds-1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-cli/commons-cli/1.0/commons-cli-1.0.jar" sourcepath="M2_REPO/commons-cli/commons-cli/1.0/commons-cli-1.0-sources.jar">
     <attributes>
       <attribute value="jar:file:/home/rgomes/.m2/repository/commons-cli/commons-cli/1.0/commons-cli-1.0-javadoc.jar!/" name="javadoc_location"/>
@@ -116,7 +116,7 @@
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar" sourcepath="M2_REPO/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.jar" sourcepath="M2_REPO/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/scala-lang/scala-library/2.8.0/scala-library-2.8.0.jar" sourcepath="M2_REPO/org/scala-lang/scala-library/2.8.0/scala-library-2.8.0-sources.jar">
     <attributes>
       <attribute value="jar:file:/home/rgomes/.m2/repository/org/scala-lang/scala-library/2.8.0/scala-library-2.8.0-javadoc.jar!/" name="javadoc_location"/>
