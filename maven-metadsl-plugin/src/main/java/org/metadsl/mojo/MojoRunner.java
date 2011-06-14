@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 
 
 public class MojoRunner {
-    
+
     final String name;
     final File basedir;
     final File modeldir;
@@ -57,12 +57,12 @@ public class MojoRunner {
             final ClassLoader thisClassLoader = this.getClass().getClassLoader();
             final ClassLoader childClassLoader = new URLClassLoader(urls, thisClassLoader);
             try {
-                final String artifactId = getName(bundle.getArtifactId());
-                final String mainClass = "org.metadsl.plugins." + artifactId + ".Plugin";
+                final String prefixName = getPrefixName(bundle.getArtifactId());
+                final String mainClass = "org.metadsl.plugins." + prefixName + ".Plugin";
                 logger.debug(String.format("Loading %s from bundle %s", mainClass, bundle.toString()));
                 final Class<?> klass = Class.forName(mainClass, true, childClassLoader); //FIXME: hardcoded class name :(
                 final Generator g = (Generator) klass.newInstance();
-                g.setName(name==null ? name : artifactId);
+                g.setName(name==null ? name : prefixName);
                 g.setLogger(logger);
                 g.setBaseDir(basedir);
                 g.setOutputDir(getOutputDirectory(bundle));
@@ -80,11 +80,11 @@ public class MojoRunner {
     //
     // private methods
     //
-    
+
     private File getOutputDirectory(Bundle bundle) throws MojoExecutionException {
         final File result;
         if (outputdir==null) {
-            String defaultPath = "target/generated/<BUNDLE>/".replaceAll("<BUNDLE>", bundle.getArtifactId());
+            String defaultPath = "./target/generated-sources/%s/".format(getPrefixName(bundle.getArtifactId()));
             result = new File(basedir, defaultPath );
         } else {
             result = outputdir;
@@ -96,7 +96,7 @@ public class MojoRunner {
         return result;
     }
 
-    private String getName(String artifactId) {
+    private String getPrefixName(String artifactId) {
         String[] parts = artifactId.split("-");
         return parts[Math.max(0, Math.min(1, parts.length-1))];
     }
