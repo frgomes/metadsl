@@ -9,7 +9,7 @@
     <groupId>org.metadsl</groupId>
     <artifactId>metadsl-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -110,30 +110,6 @@
 				<artifactId>maven-metadsl-plugin</artifactId>
 				<version>${project.version}</version>
 				<executions>
-
-					<!-- TO BE DONE -->				
-				    <!--
-					<execution>
-						<id>metadsl-jpa</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputs>
-								<input>Example.jpa</input>
-							</inputs>
-                            <bundles>
-                                <bundle>
-									<groupId>org.metadsl</groupId>
-									<artifactId>metadsl-jpa-plugin</artifactId>
-									<version>${project.version}</version>
-                                </bundle>
-                            </bundles>
-						</configuration>
-					</execution>
-					-->
-					
 					<execution>
 						<id>metadsl-equity</id>
 						<phase>generate-sources</phase>
@@ -148,6 +124,44 @@
                                 <bundle>
 									<groupId>org.metadsl</groupId>
 									<artifactId>metadsl-equity-plugin</artifactId>
+									<version>${project.version}</version>
+                                </bundle>
+                            </bundles>
+						</configuration>
+					</execution>
+					<execution>
+						<id>metadsl-pageflow</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputs>
+								<input>Example.pageflow</input>
+							</inputs>
+                            <bundles>
+                                <bundle>
+									<groupId>org.metadsl</groupId>
+									<artifactId>metadsl-pageflow-plugin</artifactId>
+									<version>${project.version}</version>
+                                </bundle>
+                            </bundles>
+						</configuration>
+					</execution>
+					<execution>
+						<id>metadsl-json</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputs>
+								<input>Example.json</input>
+							</inputs>
+                            <bundles>
+                                <bundle>
+									<groupId>org.metadsl</groupId>
+									<artifactId>metadsl-json-plugin</artifactId>
 									<version>${project.version}</version>
                                 </bundle>
                             </bundles>
