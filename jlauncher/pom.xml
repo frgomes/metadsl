@@ -5,13 +5,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>co.itrader</groupId>
+    <groupId>me.rgomes</groupId>
     <artifactId>jlauncher</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <description>a flexible Java with dependency resolution</description>
+    <description>a flexible Java application launcher with dependency resolution</description>
 
     <properties>
         <maven.required.version>2.2.1</maven.required.version>
