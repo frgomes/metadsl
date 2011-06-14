@@ -1,9 +1,0 @@
-<classpath>
-  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.scala|**/*.java"/>
-  <classpathentry kind="src" path="src/main/java" including="**/*.scala|**/*.java"/>
-  <classpathentry kind="src" path="src/main/resources" including="**/.*" excluding="**/*.scala|**/*.java"/>
-  <classpathentry kind="src" path="src/test/resources" including="**/.*" excluding="**/*.scala|**/*.java"/>
-  <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="con" path="ch.epfl.lamp.sdt.launching.SCALA_CONTAINER"/>
-</classpath>
