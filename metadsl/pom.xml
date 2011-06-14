@@ -25,7 +25,7 @@
 		<module>../metadsl-plugin</module>
 		<module>../metadsl-equity-plugin</module>
 		<module>../metadsl-pageflow-plugin</module>
-		<module>../metadsl-json-plugin</module>
+		<!--module>../metadsl-json-plugin</module-->
 		<module>../metadsl-tests</module>
     </modules>
 
