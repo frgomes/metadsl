@@ -15,6 +15,21 @@ import org.metadsl.extensions._
 import org.metadsl.util._
 
 
+object Main extends Application {
+   val name:String = "metadsl-equity-plugin"
+   val dir:String  = "./src/main/resources/model/"
+
+   val plugin = new Plugin
+   plugin.setName(name)
+   plugin.setLogger(LoggerFactory.getLogger(name))
+   plugin.setBaseDir(new File("."))
+   plugin.setOutputDir(new File(dir))
+
+   plugin.process(new File(dir+"Example.equity"))
+}
+
+
+
 class Plugin extends AbstractGenerator {
     def process(source : File) = {
         val p = new PluginBody(outputDir, logger)
