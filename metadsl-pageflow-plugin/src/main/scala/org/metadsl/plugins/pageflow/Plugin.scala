@@ -16,13 +16,13 @@ import org.metadsl.util._
 
 class Plugin extends AbstractGenerator {
     def process(source : File) = {
-        val p = new PageflowDSL(outputDir, logger)
+        val p = new PluginBody(outputDir, logger)
         p.process(source)
     }
 }
 
 
-private class PageflowDSL(outputDirectory:File, logger:Logger) extends ResourceProcessor {
+private class PluginBody(outputDirectory:File, logger:Logger) extends ResourceProcessor {
 
 	override def process(is:InputStream) : Unit = {
         val reader : Reader = new InputStreamReader(is)
