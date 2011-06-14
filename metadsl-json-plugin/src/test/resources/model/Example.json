@@ -1,59 +1,11 @@
-[18:26:34.90]
-trans-request {
-        session-id "56334:1311440763",
-        subject-user void,
-        transaction-id 5,
-        client-reference void
-}
-orderBulk {
-        type volatileOrder {
-                orderGroupExtId "26uClwutS"
-        },
-        orderList {
-                {
-                        orderListAction orderEntry {
-                                fixed {
-                                        secBoardId {
-                                                secCode "3000044",
-                                                boardId void
-                                        },
-                                        buySell buy,
-                                        isPrivate void,
-                                        externalOrderId2 "26uClwutS"
-                                },
-                                amendable {
-                                        price {
-                                                value 145,
-                                                decimals 4
-                                        },
-                                        yield void,
-                                        triggerPrice void,
-                                        quantity {
-                                                value 1,
-                                                decimals 4
-                                        },
-                                        duration day,
-                                        expiryTime void,
-                                        visibleQuantity void,
-                                        minFillQuantity void,
-                                        trdAccChoice void,
-                                        brokerRef void,
-                                        sessDurationId void,
-                                        shared void,
-                                        actionOnLogoff logoffWithdraw,
-                                        trackingType void,
-                                        trackedSecBoardId void,
-                                        positionType void,
-                                        tradeReference void,
-                                        allowSoftQtyLimit void,
-                                        allowSoftPriceLimit void,
-                                        type limit,
-                                        externalOrderId void
-                                },
-                                siteSpecific void
-                        },
-                        result void
-                }
-        },
-        withdrawAllExisting void
+{
+    "me.rgomes.restful.model.Person":
+        {
+            "uid":"rgomes",
+            "cn":"Richard Gomes",
+            "givenName":"Richard",
+            "sn":"Gomes",
+            "mail":"rgomes1997@yahoo.co.uk",
+            "password":"secret"
+        }
 }

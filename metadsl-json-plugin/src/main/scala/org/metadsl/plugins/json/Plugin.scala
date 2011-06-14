@@ -7,11 +7,25 @@ import java.util.UUID
 import scala.collection._
 import scala.util.parsing.combinator._
 
-import org.slf4j.Logger
+import org.slf4j.{LoggerFactory,Logger}
 
 import org.metadsl.compiler._
 import org.metadsl.extensions._
 import org.metadsl.util._
+
+
+object Main extends Application {
+   val name:String = "metadsl-pageflow-plugin"
+   val dir:String  = "./src/main/resources/model/"
+
+   val plugin = new Plugin
+   plugin.setName(name)
+   plugin.setLogger(LoggerFactory.getLogger(name))
+   plugin.setBaseDir(new File("."))
+   plugin.setOutputDir(new File(dir))
+
+   plugin.process(new File(dir+"Example.pageflow"))
+}
 
 
 class Plugin extends AbstractGenerator {
@@ -113,24 +127,30 @@ private case class UnnamedBlock(val pairs:List[Pair], val literals:List[String])
 private class SyntaxTree extends AbstractSyntaxTree {
 
 	def visit(node : Node) : Unit = {
-		// println("%s%s ( %s )".format(indent, node.name, node.getClass.getName ))
+        visit(0, node)
+    }
+
+	def visit(indent:Int, node : Node) : Unit = {
+
+		// println("%%%ds ( %s )".format(indent*2, node.name, node.getClass.getName ))
+
 		node match {
 			case (Model(entries:List[Entry])) =>
 				store(node)
-				for (entry <- entries) visit(entry)
+				for (entry <- entries) visit(indent+1, entry)
 			case (Entry(comment:String, group:Group, block:Block)) =>
 				store(node)
                 if (group != null) {
                     //TODO: should inject date/time from Group into the Block
                 } else if (block != null) {
-                    visit(block)
+                    visit(indent+1, block)
                 }
             case (Block(namedBlock:NamedBlock, unnamedBlock:UnnamedBlock, pair:Pair)) =>
                 store(node)
                 if (namedBlock != null) {
-                    visit(namedBlock)
+                    visit(indent+1, namedBlock)
                 } else if (unnamedBlock != null) {
-                    visit(unnamedBlock)
+                    visit(indent+1, unnamedBlock)
                 } else {
                     // do not visit Pair
                 }
