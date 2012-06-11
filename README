@@ -1,0 +1,37 @@
+metaDSL provides a framework which eases creation of BNF grammars, parser generators and code generators.
+
+The intent of this project is allow one to compile a DSL at build time (powered by Maven), generating resources which will be later included during the compilation of your application. This way, you can define a convenient DSL which eventually generates efficient Java code, instead of having to use extraneous XML files which will have to be later parsed by your application or third party libraries.
+
+The project born when I've got frustrated with existing solutions I found, in particular in regards to integration.
+Keeping the long story short, the article below explains better than me the advantages of implementing everything in a single programming language:
+http://ofps.oreilly.com/titles/9780596155957/DomainSpecificLanguages.html
+
+
+
+Quick guide for the impatient
+-----------------------------
+
+to be done
+
+
+
+Modules
+-------
+
+Core
+
+  metadsl               -- build aggregator for Maven
+  maven-metadsl-plugin  -- Maven plugin, written in Java
+  metadsl-plugin        -- core adaptor for 3rd party plugins
+  jlauncher             -- runs maven-metadsl-plugin from the command line
+
+
+Tests and Examples
+
+  metadsl-equity-plugin   -- simple representation for equities (finance)
+  metadsl-json-plugin     -- recognizes a simple JSON grammar
+  metadsl-pageflow-plugin -- grammar for generation of Vaadin pageflows 
+  metadsl-tests           -- more tests
+
+
+-- Richard Gomes
