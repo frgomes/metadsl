@@ -21,7 +21,7 @@
         <java-getopt.version>1.0.9</java-getopt.version>
         <maven-assembly-plugin.mainClass>org.metadsl.Main</maven-assembly-plugin.mainClass>
 
-        <maven-artifact.version>2.0.9</maven-artifact.version> <!-- Must be 2.0.9 See comments in Launcher.java -->
+        <maven-artifact.version>3.8.1</maven-artifact.version> <!-- Must be 2.0.9 See comments in Launcher.java -->
         <plexus.version>1.0-alpha-9-stable-1</plexus.version>  <!-- Must be 1.0-alpha-9-stable-1 See comments in Launcher.java -->
     </properties>
 
